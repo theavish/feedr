@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/theavish/feedr/issues"
   },
-  "homepage": "https://github.com/theavish/feedr#readme"
+  "homepage": "https://github.com/theavish/feedr#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.7.0"
+  }
 }
