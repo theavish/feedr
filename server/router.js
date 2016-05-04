@@ -11,12 +11,13 @@ router.get('/test', (req, res) => { res.send('success'); });
 
 router.get('/lookup/:name/:region', jsonparser, lookupByName);
 router.get('/version', getRealmVersion);
-router.get('/championList', getChampionIds);
+router.get('/champions', getChampionIds);
 
 module.exports = router;
 
 function getChampionIds(req, res) {
   riotAPI.getChampionData({dataById:true}).then(function(data) {
+    console.log(data.data)
     res.send(data);
   });
 }
