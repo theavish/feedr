@@ -8,8 +8,8 @@
   function searchFactory($http) {
     var factory = { lookup:lookup };
 
-    function lookup(name) {
-      return $http.get('/api/lookup/' + name)
+    function lookup(name, region) {
+      return $http.get('/api/lookup/' + name + '/' + region)
         .then(function(resp) { return resp });
     }
 

@@ -5,8 +5,20 @@
 
   <body ng-app="feedr">
     <div class="container" ng-controller="searchController as ctrl">
-      <form ng-submit="ctrl.lookup(name)">
+      <form ng-submit="ctrl.lookup(name, region)">
         <input type="text" placeholder="Summoner Name" ng-model="name">
+        <select name="singleSelect" ng-model="region">
+          <option value="na">North America</option>
+          <option value="br">Brazil</option>
+          <option value="eune">Europe North-East</option>
+          <option value="euw">Europe West</option>
+          <option value="kr">Korea</option>
+          <option value="lan">Latin America North</option>
+          <option value="las">Latin America South</option>
+          <option value="oce">Oceania</option>
+          <option value="tr">Turkey</option>
+          <option value="ru">Russia</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </div>
