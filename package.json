@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/theavish/feedr#readme",
   "dependencies": {
+    "angular": "^1.5.5",
     "express": "^4.13.4"
   },
   "devDependencies": {
