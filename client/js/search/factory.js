@@ -6,11 +6,14 @@
   searchFactory.$inject = ['$http'];
 
   function searchFactory($http) {
-    var factory = { lookup:lookup };
+    var factory = { lookup:lookup, getVersion:getVersion };
 
     function lookup(name, region) {
-      return $http.get('/api/lookup/' + name + '/' + region)
-        .then(function(resp) { return resp });
+      return $http.get('/api/lookup/' + name + '/' + region).then(function(resp) { return resp; });
+    }
+
+    function getVersion() {
+      return $http.get('/api/version').then(function(resp) { return resp; });
     }
 
     return factory;

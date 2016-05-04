@@ -4,23 +4,39 @@
   </head>
 
   <body ng-app="feedr">
-    <div class="container" ng-controller="searchController as ctrl">
-      <form ng-submit="ctrl.lookup(name, region)">
-        <input type="text" placeholder="Summoner Name" ng-model="name">
-        <select name="singleSelect" ng-model="region">
-          <option value="na">North America</option>
-          <option value="br">Brazil</option>
-          <option value="eune">Europe North-East</option>
-          <option value="euw">Europe West</option>
-          <option value="kr">Korea</option>
-          <option value="lan">Latin America North</option>
-          <option value="las">Latin America South</option>
-          <option value="oce">Oceania</option>
-          <option value="tr">Turkey</option>
-          <option value="ru">Russia</option>
-        </select>
-        <button type="submit">Submit</button>
-      </form>
+    <div class="container" ng-controller="searchController as ctrl" ng-init="ctrl.getVersion()">
+      <div class="search-form">
+        <form ng-submit="ctrl.lookup(name, region)">
+          <input type="text" placeholder="Summoner Name" ng-model="name">
+          <select name="singleSelect" ng-model="region">
+            <option value="na">North America</option>
+            <option value="br">Brazil</option>
+            <option value="eune">Europe North-East</option>
+            <option value="euw">Europe West</option>
+            <option value="kr">Korea</option>
+            <option value="lan">Latin America North</option>
+            <option value="las">Latin America South</option>
+            <option value="oce">Oceania</option>
+            <option value="tr">Turkey</option>
+            <option value="ru">Russia</option>
+          </select>
+          <button type="submit">Submit</button>
+          <button ng-click="ctrl.lookup('misterredman', 'na')">test</button>
+        </form>
+      </div>
+      <!--  -->
+      <div class="loading" ng-if="ctrl.loading"><h1>.......................................</h1></div>
+      <!--  -->
+      <div class="results" ng-if="!ctrl.loading">
+        <h3>{{ctrl.name}}</h3> <img ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png">
+        <div class="game-table">
+          <div ng-repeat="game in ctrl.games">
+            <span class="champion-icon"><img src=""></span>
+            <span class="kda">K/D/A: {{game.kills}}/{{game.deaths}}/{{game.assists}}</span>
+            <span class="feedingOrNah">{{game.feeding}}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Scripts -->
     <script src="/src/angular/angular.min.js"></script>
