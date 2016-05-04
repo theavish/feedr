@@ -10,8 +10,24 @@ const riotAPI = new riot({
 router.get('/test', (req, res) => { res.send('success'); });
 
 router.get('/lookup/:name/:region', jsonparser, lookupByName);
+router.get('/version', getRealmVersion);
+router.get('/championList', getChampionIds);
 
 module.exports = router;
+
+function getChampionIds(req, res) {
+  riotAPI.getChampionData({dataById:true}).then(function(data) {
+    res.send(data);
+  });
+}
+
+function getRealmVersion(req, res) {
+  var currentVersion;
+  riotAPI.getVersions().then(function(data) {
+    currentVersion = data[0];
+    res.send(currentVersion);
+  })
+};
 
 function lookupByName(req, res) {
   const name = req.params.name;
