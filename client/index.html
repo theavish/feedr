@@ -5,8 +5,8 @@
 
   <body ng-app="feedr">
     <div class="container" ng-controller="search as ctrl">
-      <form>
-        <input type="text" placeholder="Summoner Name">
+      <form ng-submit="ctrl.lookup(name)">
+        <input type="text" placeholder="Summoner Name" ng-model="name">
         <button type="submit">Submit</button>
       </form>
     </div>
