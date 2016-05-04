@@ -3,14 +3,15 @@
 
   angular.module('feedr').controller('searchController', searchController);
 
-  searchController.$inject = [];
+  searchController.$inject = ['searchFactory'];
 
-  function searchController() {
+  function searchController(searchFactory) {
     var vm = this;
     vm.lookup = lookup;
 
     function lookup(name) {
-      console.log('Searching for:', name)
+      searchFactory.lookup(name)
+        .then(function(resp) { console.log(resp) });
     }
   }
 
