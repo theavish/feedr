@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('feedr').controller('search', search);
+  angular.module('feedr').controller('searchController', searchController);
 
-  search.$inject = [];
+  searchController.$inject = [];
 
-  function search() {
+  function searchController() {
     var vm = this;
     vm.lookup = lookup;
 

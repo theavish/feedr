@@ -4,7 +4,7 @@
   </head>
 
   <body ng-app="feedr">
-    <div class="container" ng-controller="search as ctrl">
+    <div class="container" ng-controller="searchController as ctrl">
       <form ng-submit="ctrl.lookup(name)">
         <input type="text" placeholder="Summoner Name" ng-model="name">
         <button type="submit">Submit</button>
