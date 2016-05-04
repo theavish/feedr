@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const jsonparser = require('body-parser').json();
 const riot = require('lol-riot-api-module');
-const championList;
+var championList;
 
 const riotAPI = new riot({
   key: require('./config/api-key.js'),
@@ -26,8 +26,9 @@ function getChampionIds(req, res) {
       champ.key = list[champion].key;
       champions.push(champ);
     }
-    console.log(champions)
     championList = champions;
+    console.log(championList)
+
     res.send(champions);
   });
 }
@@ -51,10 +52,10 @@ function lookupByName(req, res) {
     riotAPI.getRecentGamesBySummonerId(summoner).then(function(data) {
       var games = [];
       var item, kills, assists, deaths, championId;
-      for(game in data.games) {
+      for (game in data.games) {
         item = data.games[game];
-        kills = item.stats.championsKilled;
-        assists = item.stats.assists;
+        kills = item.stats.championsKilled || 0;
+        assists = item.stats.assists || 0;
         deaths = item.stats.numDeaths || 0;
         championId = item.championId;
         games.push({
@@ -64,6 +65,13 @@ function lookupByName(req, res) {
           feeding: kills + assists >= deaths,
           championId: championId 
         });
+      }
+      for (var i = 0; i < games.length; i++) {
+        for (var j = 0; j < championList.length; j++) {
+          if (games[i].championId === championList[j].id) {
+            games[i].key = championList[j].key;
+          }
+        }
       }
       response.games = games;
     }).then(function() {
