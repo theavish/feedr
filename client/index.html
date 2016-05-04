@@ -31,7 +31,7 @@
         <h3>{{ctrl.name}}</h3> <img ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png">
         <div class="game-table">
           <div ng-repeat="game in ctrl.games">
-            <span class="champion-icon"><img src=""></span>
+            <span class="champion-icon"><img ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/champion/{{game.key}}.png "></span>
             <span class="kda">K/D/A: {{game.kills}}/{{game.deaths}}/{{game.assists}}</span>
             <span class="feedingOrNah">{{game.feeding}}</span>
           </div>

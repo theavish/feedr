@@ -11,15 +11,9 @@
     vm.init = init;
 
     function init() {
-      getChampions();
+      searchFactory.getChampions();
       getVersion();
       vm.loading = false;
-    }
-
-    function getChampions() {
-      searchFactory.getChampions().then(function(resp) {
-        console.log(resp)
-      });
     }
 
     function getVersion() {
