@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const jsonparser = require('body-parser').json();
 const riot = require('lol-riot-api-module');
+const championList;
 
 const riotAPI = new riot({
   key: require('./config/api-key.js'),
@@ -17,8 +18,17 @@ module.exports = router;
 
 function getChampionIds(req, res) {
   riotAPI.getChampionData({dataById:true}).then(function(data) {
-    console.log(data.data)
-    res.send(data);
+    var champions = [];
+    var list = data.data;
+    for (var champion in list) {
+      var champ = {};
+      champ.id = list[champion].id;
+      champ.key = list[champion].key;
+      champions.push(champ);
+    }
+    console.log(champions)
+    championList = champions;
+    res.send(champions);
   });
 }
 
