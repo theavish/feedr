@@ -1,0 +1,19 @@
+{
+  "name": "feedr",
+  "version": "1.0.0",
+  "description": "is that person feeding?",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theavish/feedr.git"
+  },
+  "author": "Avi Samloff <avi.samloff@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theavish/feedr/issues"
+  },
+  "homepage": "https://github.com/theavish/feedr#readme"
+}
