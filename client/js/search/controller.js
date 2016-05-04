@@ -8,11 +8,19 @@
   function searchController(searchFactory) {
     var vm = this;
     vm.lookup = lookup;
-    vm.loading = false;
-    vm.getVersion = getVersion;
-    vm.getChampions = getChampions;
+    vm.init = init;
 
-    function getChampions() {}
+    function init() {
+      getChampions();
+      getVersion();
+      vm.loading = false;
+    }
+
+    function getChampions() {
+      searchFactory.getChampions().then(function(resp) {
+        console.log(resp)
+      });
+    }
 
     function getVersion() {
       searchFactory.getVersion().then(function(resp) {
