@@ -1,2 +1,2 @@
 node_modules
-config/api-key.js
+server/config/api-key.js
