@@ -27,8 +27,6 @@ function getChampionIds(req, res) {
       champions.push(champ);
     }
     championList = champions;
-    console.log(championList)
-
     res.send(champions);
   });
 }
@@ -62,7 +60,7 @@ function lookupByName(req, res) {
           kills: kills,
           assists: assists,
           deaths: deaths,
-          feeding: kills + assists >= deaths,
+          feeding: kills + assists < deaths,
           championId: championId 
         });
       }
