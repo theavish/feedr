@@ -2,9 +2,14 @@
   <head>
     <title>feedr</title>
     <link rel="stylesheet" href="/src/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+      [ng-cloak] {
+        display: none;
+      }
+    </style>
   </head>
 
-  <body ng-app="feedr">
+  <body ng-app="feedr" ng-cloak>
     <div class="container-fluid" ng-controller="searchController as ctrl" ng-init="ctrl.init()">
       <!-- start form -->
       <div class="search-form">
