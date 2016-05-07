@@ -29,6 +29,15 @@
         vm.icon = resp.data.icon;
         vm.games = resp.data.games;
         vm.loading = false;
+        
+        var numOfGamesFed = 0;
+        for (var i = 0; i < vm.games.length; i++) {
+          if (vm.games[i].feeding) {
+            numOfGamesFed++;
+          }
+        }
+        vm.feeder = numOfGamesFed > (vm.games.length / 2) ? 'is' : 'is not';
+
       });
     }
   }
