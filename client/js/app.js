@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('feedr', ['ui.bootstrap']);
+  angular.module('feedr', []);
   
 })();
