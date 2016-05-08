@@ -14,9 +14,11 @@ router.get('/lookup/:name/:region', jsonparser, lookupByName);
 router.get('/version', getRealmVersion);
 router.get('/champions', getChampionIds);
 
+getChampionIds();
+
 module.exports = router;
 
-function getChampionIds(req, res) {
+function getChampionIds() {
   riotAPI.getChampionData({dataById:true}).then(function(data) {
     var champions = [];
     var list = data.data;
@@ -27,7 +29,6 @@ function getChampionIds(req, res) {
       champions.push(champ);
     }
     championList = champions;
-    res.send(champions);
   });
 }
 
