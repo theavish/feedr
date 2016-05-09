@@ -64,13 +64,15 @@ function lookupByName(req, res) {
           assists: assists,
           deaths: deaths,
           feeding: kills + assists < deaths,
-          championId: championId 
+          championId: championId
         });
       }
       for (var i = 0; i < games.length; i++) {
         for (var j = 0; j < championList.length; j++) {
           if (games[i].championId === championList[j].id) {
             games[i].key = championList[j].key;
+            games[i].shortName = championList[j].shortName;
+            games[i].longName = championList[j].longName;
           }
         }
       }
