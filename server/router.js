@@ -26,6 +26,8 @@ function getChampionIds() {
       var champ = {};
       champ.id = list[champion].id;
       champ.key = list[champion].key;
+      champ.shortName = list[champion].name;
+      champ.longName = list[champion].name + ', ' + list[champion].title;
       champions.push(champ);
     }
     championList = champions;
