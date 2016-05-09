@@ -22,6 +22,17 @@
     }
 
     function lookup(name, region) {
+      if (!name || !region) {
+        swal({
+          title: 'Error!',
+          text: 'Please try again, and don\'t forget to include the region!',
+          type: 'error',
+          confirmButtonText: 'Okay'
+        });
+        vm.loading = false;
+        return;
+      }
+
       vm.loading = true;
       searchFactory.lookup(name, region).then(function(resp) {
         vm.name = resp.data.name;
