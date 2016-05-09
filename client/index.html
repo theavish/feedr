@@ -8,24 +8,28 @@
   <body ng-app="feedr" ng-cloak>
     <div class="container-fluid" ng-controller="searchController as ctrl" ng-init="ctrl.init()">
       <!-- start form -->
-      <div class="search-form">
-        <form ng-submit="ctrl.lookup(name, region)" class="form-inline">
-          <input type="text" class="form-control" placeholder="Summoner Name" ng-model="name">
-          <select class="form-control" ng-model="region">
-            <option value="NA">NA</option>
-            <option value="BR">BR</option>
-            <option value="EUNE">EUNE</option>
-            <option value="EUW">EUW</option>
-            <option value="KR">KR</option>
-            <option value="LAN">LAN</option>
-            <option value="LAS">LAS</option>
-            <option value="OCE">OCE</option>
-            <option value="TR">TR</option>
-            <option value="RU">RU</option>
-          </select>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+      <center>
+        <h1>feedr</h1>
+        <div class="search-form">
+          <form ng-submit="ctrl.lookup(name, region)" class="form-inline">
+            <input type="text" class="form-control" placeholder="Summoner Name" ng-model="name">
+            <select class="form-control" ng-model="region">
+              <option value="NA">NA</option>
+              <option value="BR">BR</option>
+              <option value="EUNE">EUNE</option>
+              <option value="EUW">EUW</option>
+              <option value="KR">KR</option>
+              <option value="LAN">LAN</option>
+              <option value="LAS">LAS</option>
+              <option value="OCE">OCE</option>
+              <option value="TR">TR</option>
+              <option value="RU">RU</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <span><h4>Search for your friends to find out if they've been feeding or not!</h4></span>
+        </div>
+      </center>
       <!-- end form -->
       <!-- start loading div -->
       <div class="loading" ng-if="ctrl.loading">
