@@ -9,11 +9,6 @@ const nodemodules = path.join(__dirname, '..', 'node_modules');
 
 const apiRouter = require('./router.js');
 
-if (process.env.devFlag) {
-  app.use(morgan('dev'));
-}
-  
-
 app.use('/', express.static(clientDir));
 
 app.use('/src', express.static(nodemodules));
