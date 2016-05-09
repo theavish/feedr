@@ -26,7 +26,30 @@
 }
 
 div.results {
-  max-width: 80%;
+  max-width: 60%;
   margin-right: auto;
   margin-left: auto;
+}
+
+img.img-thumbnail-no-border {
+  border: 0;
+  padding: 0;
+}
+
+img.champion-icon {
+  min-height: 32px;
+  max-height: 64px;
+}
+
+img.summoner-icon {
+  min-height: 64px;
+  max-height: 80px;
+}
+
+.page-header-no-line {
+  border-bottom:none;
+}
+
+.red-background {
+  background-color: red;
 }

@@ -12,8 +12,8 @@
         <h1>feedr</h1>
         <div class="search-form">
           <form ng-submit="ctrl.lookup(name, region)" class="form-inline">
-            <input type="text" class="form-control" placeholder="Summoner Name" ng-model="name">
-            <select class="form-control" ng-model="region">
+            <input type="text" class="form-control" placeholder="Summoner Name" ng-model="name" required>
+            <select class="form-control" ng-model="region" required>
               <option value="NA">NA</option>
               <option value="BR">BR</option>
               <option value="EUNE">EUNE</option>
@@ -42,17 +42,28 @@
       <!-- end loading div -->
       <!-- start results div -->
       <div class="results" ng-if="!ctrl.loading">
-        <div class="page-header" ng-show="ctrl.name">
-          <h1><small><img ng-show="ctrl.icon" ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png" class="img-thumbnail img-responsive"></small>{{ctrl.name}} <small>{{ctrl.feeder}} a dirty feeder!</small></h1>
+        <div class="page-header page-header-no-line text-center" ng-show="ctrl.name">
+          <h3><img ng-show="ctrl.icon" ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png" class="img-thumbnail img-responsive summoner-icon"> {{ctrl.name}} <small>{{ctrl.feeder}} a dirty feeder!</small></h3>
         </div>
         <div class="game-table">
-          <ul class="list-group">
-            <li ng-repeat="game in ctrl.games" class="list-group-item">
-              <span class="champion-icon"><img height="5em" ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/champion/{{game.key}}.png" class="img-thumbnail img-responsive"></span>
-              <span class="kda">K/D/A: {{game.kills}}/{{game.deaths}}/{{game.assists}}</span>
-              <span class="feedingOrNah">{{game.feeding}}</span>
-            </li>
-          </ul>
+          <div class="table-responsive" ng-if="ctrl.games">  
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Champion</th>
+                  <th>K/D/A</th>
+                  <th>Feeding?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="game in ctrl.games" ng-class="game.feeding ? 'red-background' : ''">
+                  <td><img ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/champion/{{game.key}}.png" class="champion-icon img-thumbnail img-thumbnail-no-border img-responsive"> {{game.longName}}</td>
+                  <td><span class="kda">{{game.kills}}/{{game.deaths}}/{{game.assists}}</span></td>
+                  <td>{{game.feeding ? 'Yes' : 'No'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <!-- end results div -->
