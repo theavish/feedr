@@ -4,7 +4,7 @@ const riot = require('lol-riot-api-module');
 var championList;
 
 const riotAPI = new riot({
-  key: require('./config/api-key.js'),
+  key: process.env.riotAPIKey || require('./config/api-key.js'),
   region: 'na'
 });
 
