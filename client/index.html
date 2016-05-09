@@ -6,6 +6,35 @@
       [ng-cloak] {
         display: none;
       }
+
+      .glyphicon-refresh-animate {
+        font-size: 3em;
+        -animation: spin 1s infinite linear;
+        -ms-animation: spin 1s infinite linear;
+        -webkit-animation: spinw 1s infinite linear;
+        -moz-animation: spinm 1s infinite linear;
+      }
+
+      @keyframes spin {
+        from { transform: scale(1) rotate(0deg);}
+        to { transform: scale(1) rotate(360deg);}
+      }
+
+      @-webkit-keyframes spinw {
+        from { -webkit-transform: rotate(0deg);}
+        to { -webkit-transform: rotate(360deg);}
+      }
+
+      @-moz-keyframes spinm {
+        from { -moz-transform: rotate(0deg);}
+        to { -moz-transform: rotate(360deg);}
+      }
+
+      .vertical-align {
+        display: flex;
+        align-items: center;
+      }
+
     </style>
   </head>
 
@@ -31,8 +60,16 @@
         </form>
       </div>
       <!-- end form -->
-      <div class="loading" ng-if="ctrl.loading"><h1>.......................................</h1></div>
-      <!--  -->
+      <!-- start loading div -->
+      <div class="loading" ng-if="ctrl.loading">
+        <div class="form-group">
+          <div class="text-center">
+            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+          </div>
+        </div>
+      </div>
+      <!-- end loading div -->
+      <!-- start results div -->
       <div class="results" ng-if="!ctrl.loading">
         <div class="page-header" ng-show="ctrl.name">
           <h1><small><img ng-show="ctrl.icon" ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png" class="img-thumbnail img-responsive"></small>{{ctrl.name}} <small>{{ctrl.feeder}} a dirty feeder!</small></h1>
@@ -47,6 +84,7 @@
           </ul>
         </div>
       </div>
+      <!-- end results div -->
     </div>
     <!-- Scripts -->
     <script src="/src/angular/angular.min.js"></script>
