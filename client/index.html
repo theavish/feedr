@@ -8,7 +8,7 @@
   </head>
 
   <body ng-app="feedr" ng-cloak>
-    <div class="container-fluid" ng-controller="searchController as ctrl" ng-init="ctrl.init()">
+    <div id="wrap" class="container-fluid" ng-controller="searchController as ctrl" ng-init="ctrl.init()">
       <!-- start form -->
       <center>
         <h1>feedr</h1>
@@ -45,7 +45,7 @@
       <!-- start results div -->
       <div class="results" ng-if="!ctrl.loading">
         <div class="page-header page-header-no-line text-center" ng-show="ctrl.name">
-          <h3><img ng-show="ctrl.icon" ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png" class="img-thumbnail img-responsive summoner-icon"> {{ctrl.name}} <small>{{ctrl.feeder}} a dirty feeder!</small></h3>
+          <h3><img ng-show="ctrl.icon" ng-src="http://ddragon.leagueoflegends.com/cdn/{{ctrl.version}}/img/profileicon/{{ctrl.icon}}.png" class="img-thumbnail img-thumbnail-no-border img-responsive summoner-icon"> {{ctrl.name}} <small>{{ctrl.feeder}} a dirty feeder!</small></h3>
         </div>
         <div class="game-table" ng-if="ctrl.games">
           <div class="table-responsive">  
@@ -70,6 +70,13 @@
       </div>
       <!-- end results div -->
     </div>
+    <!-- start sticky footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="container">
+        <p class="text-muted"><b>feedr</b> isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+      </footer>
+    </div>
+    <!-- end sticky footer -->
     <!-- Scripts -->
     <script src="/src/angular/angular.min.js"></script>
     <script src="/src/sweetalert2/dist/sweetalert2.min.js"></script>
