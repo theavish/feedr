@@ -67,6 +67,15 @@ img.summoner-icon {
 
 footer {
   height: 60px;
+  padding-top: 5px;
   text-align: center;
   background-color: #f5f5f5;
+}
+
+.tiny-text {
+  font-size: 40%;
+}
+
+.riot-text {
+  max-width: 80%;
 }

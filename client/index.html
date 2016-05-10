@@ -11,7 +11,7 @@
     <div id="wrap" class="container-fluid" ng-controller="searchController as ctrl" ng-init="ctrl.init()">
       <!-- start form -->
       <center>
-        <h1>feedr</h1>
+        <h1>feedr <small class="tiny-text">by <a href="http://avisamloff.com">Avi Samloff</a></small></h1>
         <div class="search-form">
           <form ng-submit="ctrl.lookup(name, region)" class="form-inline">
             <input type="text" class="form-control" placeholder="Summoner Name" ng-model="name" required>
@@ -72,8 +72,8 @@
     </div>
     <!-- start sticky footer -->
     <footer class="footer navbar-fixed-bottom">
-      <div class="container">
-        <p class="text-muted"><b>feedr</b> isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+      <div class="container-fluid">
+        <p class="text-muted riot-text center-block"><b>feedr</b> isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
       </footer>
     </div>
     <!-- end sticky footer -->
