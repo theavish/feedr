@@ -49,3 +49,7 @@ img.summoner-icon {
 .page-header-no-line {
   border-bottom:none;
 }
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
