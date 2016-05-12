@@ -9,7 +9,9 @@
     var factory = { lookup:lookup, getVersion:getVersion, getChampions:getChampions };
 
     function lookup(name, region) {
-      return $http.get('/api/lookup/' + name + '/' + region).then(function(resp) { return resp; });
+      return $http.get('/api/lookup/' + name + '/' + region).then(function(resp) { 
+        return resp; 
+      });
     }
 
     function getVersion() {
